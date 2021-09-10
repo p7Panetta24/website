@@ -1,0 +1,89 @@
+<html>
+<head>
+<script language="javaScript"> 
+function guessing()
+{
+var usersGuess = -1;
+var numOfGuesses = 0;
+var rand = Math.random()*15 + 1;
+rand = parseInt(rand);
+
+while (rand != usersGuess)
+{
+usersGuess = prompt ("Enter a number between 1-15");
+numOfGuesses = numOfGuesses+1;
+if(usersGuess<rand)
+{
+alert ("Your guess is too low.");
+}
+else if(usersGuess>rand)
+{
+alert ("Your guess is too high.");
+}
+}
+alert ("You are correct! Num of Guesses = "+numOfGuesses)
+}
+
+function greeting1()
+{
+alert("Hello");
+}
+function greeting2()
+{   //var declares a variable. Use var only once per variable
+    // 1st time a variable is assigned to data is called "initialize"
+var name = prompt("Type your name"); //= is the assignment operator
+alert("Hello there, "+name);
+} // This asssigns the element on the right to
+                                         // the element on the left
+
+function greeting3()
+{
+   var name = confirm("Do you like my site?");
+   alert(name);
+}
+
+/* 
+1. Create (declare) three variables
+2. Set numOfGuesses to 0
+3. Create a random number between 1 and 10. Store this in rand.
+4. Set usersGuess to -1
+5. Create a while loop
+		while (rand != usersGuess) // == tests equality. != tests if rand does NOT EQUAL uG
+6. Inside while,
+	6a. increase numOfGuesses.
+	6b. prompt the user to input a new guess
+7. After the while, alert that they are correct	6c. if usersGuess is too high or low, alert this fact.
+ and how many guesses it took
+*/
+</script>
+</head>
+<body bgcolor="violet">
+<font size= "5" color = "yellow" face="Cooper">
+<h1> My First JavaScript Page </h1>
+</font>
+<br/>
+<br/>
+<font size= "3" color = "yellow" face="Cooper">
+<i>click here for <a href="index.html"> index site</a></i>
+<br/>
+<br/>
+<hr/>
+</font>
+<br/>
+<input type="button" value="click for my game" onclick="guessing()"/>
+
+<hr/>
+<br/>
+<input type="button" value="click for my greeting" onclick="greeting1()"/>
+
+<hr/>
+<br/>
+<input type="button" value="click for my question" onclick="greeting2()"/>
+
+<hr/>
+<br/>
+<input type="button" value="click for my confirmation" onclick="greeting3()"/>
+
+<hr/>
+</body>
+</html>
