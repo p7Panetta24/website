@@ -1,0 +1,108 @@
+<html>
+<head>
+<script language = "javaScript">
+var counter = 0;
+var timer;
+var autoStart = false;
+var picList = [ "images/slides/slide1mabel.jpg", 
+                "images/slides/slide2dipper.jpg", 
+				"images/slides/slide3waddles.jpg",
+				"images/slides/slide4stan.jpg",
+				"images/slides/slide5stanford.jpg",
+				"images/slides/slide6wendy.jpg"
+			   ];
+var clipList = [   "sounds/mabelfile.mp3",
+                   "sounds/dipperfile.mp3", 
+				   "sounds/waddlesfile.mp3", 
+				   "sounds/grunklestanfile.mp3",
+				   "sounds/stanfordfile.mp3", 
+				   "sounds/wendyfile.mp3"
+				];
+
+
+function nextPic()
+{
+	
+	document.getElementById("display").src = picList[counter];
+	document.getElementById("player").src = clipList[counter];
+	document.getElementById("player").play();
+	
+	if(counter == picList.length-1)
+	{
+	counter =0;
+	}
+	else
+	{
+	counter++;
+	}
+
+	incrementCounter();
+}
+
+function incrementCounter()
+{
+	if(counter == picList.length)
+
+	{
+	counter = 0;
+	}
+
+}
+
+
+
+
+
+
+
+function run()
+{
+	if (autoStart == false)
+	{
+		autoStart = true;
+		document.getElementById("runButton").value = "Pause";
+	}
+	else
+	{
+		autoStart = false;
+		document.getElementById("runButton").value = "Run Slideshow";
+
+	}
+	autoPlay();
+}
+
+
+
+function autoPlay()
+{
+	if (autoStart == true)
+	{
+		nextPic();
+		//var clipLength = clipList[counter].duration;
+		timer = setTimeout("autoPlay()", 8000);
+	}
+	else
+	{
+		clearTimeout(timer);
+	}
+}
+
+</script>
+</head>
+<body bgcolor="#f8ff96">
+<center>
+<font size= "4" color="purple" face="Cooper">
+<h1>my ~gravity falls~ slideshow</h1>
+</font>
+<font size= "3" face="Cooper">
+<i>click here for <a href="index.html"> index site</a></i>
+</font>
+<br/><br/>
+<input type = "button" value = "Next picture" onclick="nextPic()"/>
+<input type = "button" value = "Run Slideshow" onclick = "run()" id="runButton"/>
+<br/><br/>
+<img src="images/slides/gravityfallscoverimage.png" id="display"/>
+<audio id = "player"></audio>
+</center>
+</body>
+</html>
